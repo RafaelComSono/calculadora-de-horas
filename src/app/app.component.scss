@@ -6,3 +6,7 @@
     background-color: rgb(34, 131, 216);
     color: #fff;
   }
+
+  :host ::ng-deep .bs-timepicker-field {
+    width: 70px;
+  }

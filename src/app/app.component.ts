@@ -7,16 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Calculadora de Horas';
-  hours: Date[] = [new Date()];
+  hours: Date[] = [new Date(), new Date()];
   hour: number = 0;
   minute: number = 0;
-  
-  ngOnInit(){
-    this.hours[0].setHours(0,0,0,0)
+
+  ngOnInit() {
+    this.hours.forEach(hour => hour.setHours(0, 0, 0, 0))
   }
 
-  addHour(){
-    let newHour = new Date().setHours(0,0,0,0)
+  addHour() {
+    let newHour = new Date().setHours(0, 0, 0, 0)
     this.hours.push(new Date(newHour))
   }
 
@@ -24,11 +24,13 @@ export class AppComponent {
     let totalHours = 0;
     let totalMinutes = 0;
     for (let hour of this.hours) {
-      totalHours += hour.getHours();
-      totalMinutes += hour.getMinutes();
-      if(totalMinutes >= 60){
-        totalHours +=1
-        totalMinutes -= 60
+      if (hour) {
+        totalHours += hour.getHours();
+        totalMinutes += hour.getMinutes();
+        if (totalMinutes >= 60) {
+          totalHours += 1
+          totalMinutes -= 60
+        }
       }
     }
     this.hour = totalHours
