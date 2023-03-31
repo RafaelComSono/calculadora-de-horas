@@ -7,6 +7,7 @@
       <p class="d-flex flex-column align-items-center mt-3 p-3 mx-auto inline-block border rounded">
         <span>Resultado: </span>
         {{ hour < 10 ? '0' + hour : hour }}:{{ minute < 10 ? '0' + minute : minute }}
+        <span>Equivalente a: {{totalDays}} dias</span>
       </p>
       <div class="card-body d-flex flex-column align-items-center">
         <div class="justify-content-between align-items-center mb-3" *ngFor="let hour of hours; let i = index">

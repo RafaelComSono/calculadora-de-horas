@@ -10,7 +10,7 @@ export class AppComponent {
   hours: Date[] = [new Date(), new Date()];
   hour: number = 0;
   minute: number = 0;
-
+  totalDays: number = 0;
   ngOnInit() {
     this.hours.forEach(hour => hour.setHours(0, 0, 0, 0))
   }
@@ -35,5 +35,6 @@ export class AppComponent {
     }
     this.hour = totalHours
     this.minute = totalMinutes
+    this.totalDays = Math.floor(totalHours / 24);
   }
 }
